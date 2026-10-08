@@ -14,8 +14,22 @@ namespace InventarySystem.presentation
         {
             InitializeComponent();
         }
+        private void sidebarApp_Paint(object sender, PaintEventArgs e)
+        {
 
-        private void button1_Click(object sender, EventArgs e)
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void productsBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void StockControl_Click(object sender, EventArgs e)
         {
 
         }
