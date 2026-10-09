@@ -50,7 +50,7 @@
             titleProducts.Size = new Size(164, 32);
             titleProducts.TabIndex = 1;
             titleProducts.Text = "Tus Productos";
-            titleProducts.Click += label1_Click;
+            titleProducts.Click += titleProducts_Click;
             // 
             // FormProduct
             // 

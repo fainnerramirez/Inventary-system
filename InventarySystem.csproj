@@ -13,7 +13,6 @@
     <Folder Include="Domain\" />
     <Folder Include="Infraestructure\" />
     <Folder Include="UI\Controls\" />
-    <Folder Include="UI\Theme\" />
   </ItemGroup>
 
 </Project>

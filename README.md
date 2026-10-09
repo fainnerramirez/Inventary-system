@@ -9,7 +9,7 @@ MiApp.sln
 ├── MiApp.UI            (WinForms: Forms, UserControls, Theme)
 │   ├── Views/          (Forms e interfaces IView)
 │   ├── Controls/       (controles reutilizables)
-│   ├── Theme/          (aquí vive tu "CSS")
+│   ├── Theme/          (aquí vive el "CSS")
 │   └── Program.cs      (composición/DI)
 ├── MiApp.Application   (Presenters, servicios, DTOs)
 ├── MiApp.Domain        (entidades, reglas)

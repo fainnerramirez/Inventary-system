@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InventarySystem.UI.Theme;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,9 @@ namespace InventarySystem.presentation
         public FrmMain()
         {
             InitializeComponent();
+            AppTheme.ApplyTheme(this);
         }
+
         private void sidebarApp_Paint(object sender, PaintEventArgs e)
         {
 
