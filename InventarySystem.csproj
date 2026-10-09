@@ -9,10 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Entities\" />
-    <Folder Include="Data\" />
-    <Folder Include="Businness\" />
-    <Folder Include="Utils\" />
+    <Folder Include="Application\" />
+    <Folder Include="Domain\" />
+    <Folder Include="Infraestructure\" />
+    <Folder Include="UI\Controls\" />
+    <Folder Include="UI\Theme\" />
   </ItemGroup>
 
 </Project>
