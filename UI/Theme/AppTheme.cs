@@ -52,20 +52,13 @@ namespace InventarySystem.UI.Theme
                     break;
                 case DataGridView dataGridView:
                     dataGridView.BackgroundColor = Background;
+                    dataGridView.EnableHeadersVisualStyles = false;
                     dataGridView.DefaultCellStyle.BackColor = Color.White;
                     dataGridView.DefaultCellStyle.ForeColor = Color.Black;
                     dataGridView.ColumnHeadersDefaultCellStyle.BackColor = Primary;
                     dataGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
                     dataGridView.EnableHeadersVisualStyles = false;
                     break;
-            }
-
-            if (control.HasChildren)
-            {
-                for (int i = 0; i < control.Controls.Count; i++)
-                {
-                    ApplyThemeToControl(control.Controls[i]);
-                }
             }
         }
     }
