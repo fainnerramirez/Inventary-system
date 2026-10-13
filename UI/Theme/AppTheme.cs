@@ -60,6 +60,7 @@ namespace InventarySystem.UI.Theme
                     dataGridView.EnableHeadersVisualStyles = false;
                     dataGridView.Dock = DockStyle.Fill;
                     dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
                     break;
             }
         }

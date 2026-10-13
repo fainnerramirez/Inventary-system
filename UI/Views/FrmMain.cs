@@ -32,6 +32,7 @@ namespace InventarySystem.presentation
                 var products = await ApiService.GetProducts();
                 gridProducts.DataSource = null;
                 gridProducts.DataSource = products;
+                customColumns();
             }
             catch (HttpRequestException httpEx)
             {
@@ -50,6 +51,37 @@ namespace InventarySystem.presentation
                 gridProducts.Visible = true;
                 load_products.Visible = false;
             }
+        }
+
+        private void customColumns()
+        {
+            gridProducts.AutoGenerateColumns = true;
+
+            if (gridProducts.Columns.Contains("Edit"))
+                return;
+
+            var editColumn = new DataGridViewButtonColumn
+            {
+                Name = "Edit",
+                HeaderText = "Acciones",
+                Text = "✏ Editar",
+                UseColumnTextForButtonValue = true,
+                Width = 90,
+                FlatStyle = FlatStyle.Popup
+            };
+
+            var deleteColumn = new DataGridViewButtonColumn
+            {
+                Name = "Delete",
+                HeaderText = "",
+                Text = "🗑 Eliminar",
+                UseColumnTextForButtonValue = true,
+                Width = 100,
+                FlatStyle = FlatStyle.Popup
+            };
+
+            gridProducts.Columns.Add(editColumn);
+            gridProducts.Columns.Add(deleteColumn);
         }
 
         private void sidebarApp_Paint(object sender, PaintEventArgs e)
