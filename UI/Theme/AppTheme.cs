@@ -6,18 +6,18 @@ namespace InventarySystem.UI.Theme
 {
     public static class AppTheme
     {
-        public static readonly Color Primary = Color.FromArgb(52, 152, 219); // Blue
-        public static readonly Color Background = Color.FromArgb(236, 240, 241); // Light Gray
-        public static readonly Font BodyFont = new("Segoe UI", 10);
+        private static readonly Color Primary = Color.FromArgb(52, 152, 219); // Blue
+        private static readonly Color Background = Color.FromArgb(236, 240, 241); // Light Gray
+        private static readonly Font BodyFont = new("Segoe UI", 10);
 
-        public static void ApplyTheme(Control root)
+        public static void Apply(Control root)
         {
             root.BackColor = Background;
             root.Font = BodyFont;
             ApplyThemeToChildren(root);
         }
 
-        public static void ApplyThemeToChildren(Control parent)
+        private static void ApplyThemeToChildren(Control parent)
         {
             foreach (Control control in parent.Controls)
             {
@@ -27,7 +27,7 @@ namespace InventarySystem.UI.Theme
             }
         }
 
-        public static void ApplyThemeToControl(Control control)
+        private static void ApplyThemeToControl(Control control)
         {
             switch (control)
             {

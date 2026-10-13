@@ -14,7 +14,7 @@ namespace InventarySystem.presentation
         public FrmMain()
         {
             InitializeComponent();
-            AppTheme.ApplyTheme(this);
+            AppTheme.Apply(this);
         }
 
         private void sidebarApp_Paint(object sender, PaintEventArgs e)
