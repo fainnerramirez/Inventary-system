@@ -33,12 +33,16 @@
             salesBtn = new Button();
             label1 = new Label();
             productsBtn = new Button();
-            dataGridView1 = new DataGridView();
             FilterText = new TextBox();
             button1 = new Button();
             CreateProduct = new Button();
             titlePage = new Label();
+            Load_Products_Label = new Label();
+            panel1 = new Panel();
+            dataGridView1 = new DataGridView();
+            load_products = new Label();
             sidebarApp.SuspendLayout();
+            panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -93,18 +97,9 @@
             productsBtn.UseVisualStyleBackColor = true;
             productsBtn.Click += productsBtn_Click;
             // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(430, 236);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.Size = new Size(943, 589);
-            dataGridView1.TabIndex = 1;
-            // 
             // FilterText
             // 
-            FilterText.Location = new Point(430, 191);
+            FilterText.Location = new Point(450, 113);
             FilterText.Name = "FilterText";
             FilterText.PlaceholderText = "Filtrar por productos";
             FilterText.Size = new Size(310, 39);
@@ -112,7 +107,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(746, 187);
+            button1.Location = new Point(766, 109);
             button1.Name = "button1";
             button1.Size = new Size(150, 46);
             button1.TabIndex = 3;
@@ -121,12 +116,13 @@
             // 
             // CreateProduct
             // 
-            CreateProduct.Location = new Point(1162, 184);
+            CreateProduct.Location = new Point(1742, 106);
             CreateProduct.Name = "CreateProduct";
             CreateProduct.Size = new Size(201, 46);
             CreateProduct.TabIndex = 4;
             CreateProduct.Text = "Nuevo Producto";
             CreateProduct.UseVisualStyleBackColor = true;
+            CreateProduct.Click += CreateProduct_Click;
             // 
             // titlePage
             // 
@@ -134,25 +130,70 @@
             titlePage.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             titlePage.Location = new Point(442, 46);
             titlePage.Name = "titlePage";
-            titlePage.Size = new Size(241, 65);
+            titlePage.Size = new Size(326, 65);
             titlePage.TabIndex = 5;
-            titlePage.Text = "Productos";
+            titlePage.Text = "Tus Productos";
+            titlePage.Click += titlePage_Click;
+            // 
+            // Load_Products_Label
+            // 
+            Load_Products_Label.AutoSize = true;
+            Load_Products_Label.Font = new Font("Segoe UI", 16.125F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Load_Products_Label.Location = new Point(821, 500);
+            Load_Products_Label.Name = "Load_Products_Label";
+            Load_Products_Label.Size = new Size(440, 59);
+            Load_Products_Label.TabIndex = 6;
+            Load_Products_Label.Text = "Cargando Productos...";
+            Load_Products_Label.Click += Load_Products_Label_Click;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(load_products);
+            panel1.Controls.Add(dataGridView1);
+            panel1.Location = new Point(450, 184);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1493, 650);
+            panel1.TabIndex = 7;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(21, 23);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 82;
+            dataGridView1.Size = new Size(1455, 624);
+            dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // load_products
+            // 
+            load_products.AutoSize = true;
+            load_products.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            load_products.Location = new Point(470, 293);
+            load_products.Name = "load_products";
+            load_products.Size = new Size(491, 65);
+            load_products.TabIndex = 1;
+            load_products.Text = "Cargando productos...";
+            load_products.Click += load_products_Click;
             // 
             // FrmMain
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1399, 846);
+            ClientSize = new Size(1955, 846);
+            Controls.Add(panel1);
+            Controls.Add(Load_Products_Label);
             Controls.Add(titlePage);
             Controls.Add(CreateProduct);
             Controls.Add(button1);
             Controls.Add(FilterText);
-            Controls.Add(dataGridView1);
             Controls.Add(sidebarApp);
             Name = "FrmMain";
             Text = "FrmMain";
             sidebarApp.ResumeLayout(false);
             sidebarApp.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -165,10 +206,13 @@
         private Button productsBtn;
         private Button salesBtn;
         private Button StockControl;
-        private DataGridView dataGridView1;
         private TextBox FilterText;
         private Button button1;
         private Button CreateProduct;
         private Label titlePage;
+        private Label Load_Products_Label;
+        private Panel panel1;
+        private DataGridView dataGridView1;
+        private Label load_products;
     }
 }

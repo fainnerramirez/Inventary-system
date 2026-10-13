@@ -1,3 +1,5 @@
+using System;
+using System.Windows.Forms;
 using InventarySystem.presentation;
 
 namespace InventarySystem
@@ -13,7 +15,7 @@ namespace InventarySystem
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FrmMain());
+            System.Windows.Forms.Application.Run(new FrmMain());
         }
     }
 }

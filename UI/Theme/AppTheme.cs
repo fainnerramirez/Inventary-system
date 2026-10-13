@@ -58,6 +58,8 @@ namespace InventarySystem.UI.Theme
                     dataGridView.ColumnHeadersDefaultCellStyle.BackColor = Primary;
                     dataGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
                     dataGridView.EnableHeadersVisualStyles = false;
+                    dataGridView.Dock = DockStyle.Fill;
+                    dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     break;
             }
         }

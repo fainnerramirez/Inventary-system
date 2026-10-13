@@ -9,9 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Application\" />
     <Folder Include="Domain\" />
-    <Folder Include="Infraestructure\" />
     <Folder Include="UI\Controls\" />
   </ItemGroup>
 
