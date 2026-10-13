@@ -39,11 +39,11 @@
             titlePage = new Label();
             Load_Products_Label = new Label();
             panel1 = new Panel();
-            dataGridView1 = new DataGridView();
             load_products = new Label();
+            gridProducts = new DataGridView();
             sidebarApp.SuspendLayout();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridProducts).BeginInit();
             SuspendLayout();
             // 
             // sidebarApp
@@ -149,21 +149,11 @@
             // panel1
             // 
             panel1.Controls.Add(load_products);
-            panel1.Controls.Add(dataGridView1);
+            panel1.Controls.Add(gridProducts);
             panel1.Location = new Point(450, 184);
             panel1.Name = "panel1";
             panel1.Size = new Size(1493, 650);
             panel1.TabIndex = 7;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(21, 23);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.Size = new Size(1455, 624);
-            dataGridView1.TabIndex = 0;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // load_products
             // 
@@ -175,6 +165,16 @@
             load_products.TabIndex = 1;
             load_products.Text = "Cargando productos...";
             load_products.Click += load_products_Click;
+            // 
+            // gridProducts
+            // 
+            gridProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gridProducts.Location = new Point(21, 23);
+            gridProducts.Name = "gridProducts";
+            gridProducts.RowHeadersWidth = 82;
+            gridProducts.Size = new Size(1455, 624);
+            gridProducts.TabIndex = 0;
+            gridProducts.CellContentClick += dataGridView1_CellContentClick;
             // 
             // FrmMain
             // 
@@ -194,7 +194,7 @@
             sidebarApp.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridProducts).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -212,7 +212,8 @@
         private Label titlePage;
         private Label Load_Products_Label;
         private Panel panel1;
-        private DataGridView dataGridView1;
+        private DataGridView gridProductsdataGridView1;
         private Label load_products;
+        private DataGridView gridProducts;
     }
 }

@@ -2,11 +2,13 @@
 using InventarySystem.Infraestructure.ApiClients;
 using InventarySystem.UI.Theme;
 using System;
+using System.Buffers.Text;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Text.Json;
 using System.Windows.Forms;
 
 namespace InventarySystem.presentation
@@ -25,19 +27,27 @@ namespace InventarySystem.presentation
             try
             {
                 load_products.Visible = true;
-                dataGridView1.Visible = false;
+                gridProducts.Visible = false;
 
                 var products = await ApiService.GetProducts();
-                dataGridView1.DataSource = null;
-                dataGridView1.DataSource = products;
+                gridProducts.DataSource = null;
+                gridProducts.DataSource = products;
+            }
+            catch (HttpRequestException httpEx)
+            {
+                MessageBox.Show($"HTTP error occurred: {httpEx.Message}");
+            }
+            catch (JsonException jsonEx)
+            {
+                MessageBox.Show($"JSON error occurred: {jsonEx.Message}");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error making request to {ExternalApiClient.BaseUrl}: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
-                dataGridView1.Visible = true;
+                gridProducts.Visible = true;
                 load_products.Visible = false;
             }
         }

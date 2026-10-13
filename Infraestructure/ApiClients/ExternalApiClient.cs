@@ -13,27 +13,11 @@ namespace InventarySystem.Infraestructure.ApiClients
             
         public async static Task<string> GetProducts()
         {         
-            try
-            {
-                var request = new HttpRequestMessage(HttpMethod.Get, BaseUrl);
-                var response = await _httpClient.SendAsync(request);
-                var data = await response.Content.ReadAsStringAsync();
-                return data;
-            }
-            catch (HttpRequestException httpEx)
-            {
-                MessageBox.Show($"HTTP error occurred: {httpEx.Message}");
-            }
-            catch (JsonException jsonEx)
-            {
-                MessageBox.Show($"JSON error occurred: {jsonEx.Message}");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error making request to {BaseUrl}: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            return string.Empty;
+            var request = new HttpRequestMessage(HttpMethod.Get, BaseUrl);
+            using var response = await _httpClient.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+            var data = await response.Content.ReadAsStringAsync();
+            return data;
         }
     }
 }
