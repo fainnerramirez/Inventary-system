@@ -1,15 +1,7 @@
 ﻿using InventarySystem.Application.Services;
 using InventarySystem.Infraestructure.ApiClients;
 using InventarySystem.UI.Theme;
-using System;
-using System.Buffers.Text;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Text.Json;
-using System.Windows.Forms;
 
 namespace InventarySystem.presentation
 {
