@@ -1,9 +1,6 @@
 ﻿using InventarySystem.Infraestructure.ApiClients;
 using InventarySystem.Infraestructure.ApiClients.Models;
 using System;
-using System.Buffers.Text;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.Json;
 
 namespace InventarySystem.Application.Services

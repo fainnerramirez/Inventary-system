@@ -1,21 +1,40 @@
-using System;
-using System.Windows.Forms;
+using InventarySystem.Application.Services.ProductsService;
+using InventarySystem.Infraestructure.Data;
+using InventarySystem.Infraestructure.Repositories;
 using InventarySystem.presentation;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace InventarySystem
 {
-    internal static class Program
+    public static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            System.Windows.Forms.Application.Run(new FrmMain());
+
+            var config = new ConfigurationBuilder()
+                .SetBasePath(AppContext.BaseDirectory)
+                .AddJsonFile("appsettings.json", optional: false)
+                .Build();
+
+            string cs = config.GetConnectionString("Default")!;
+
+            var services = new ServiceCollection();
+            
+            services.AddSingleton<IDbConnectionFactory>(new SqlConnectionFactory(cs));
+            
+            // repos
+            services.AddTransient<IProductRepository, ProductRepository>();
+            
+            // services
+            services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<FrmMain>();
+
+            var provider = services.BuildServiceProvider();
+
+            System.Windows.Forms.Application.Run(provider.GetRequiredService<FrmMain>());
         }
     }
 }

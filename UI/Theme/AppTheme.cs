@@ -133,7 +133,7 @@ namespace InventarySystem.UI.Theme
             if (sender is Button b)
             {
                 b.BackColor = Color.FromArgb(41, 128, 185);
-                Cursor.Current = Cursors.Default;
+                Cursor.Current = Cursors.Hand;
             }
         }
 

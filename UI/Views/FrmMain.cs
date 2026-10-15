@@ -1,5 +1,7 @@
 ﻿using InventarySystem.Application.Services;
+using InventarySystem.Application.Services.ProductsService;
 using InventarySystem.Infraestructure.ApiClients;
+using InventarySystem.Infraestructure.Repositories;
 using InventarySystem.UI.Theme;
 using System.Text.Json;
 
@@ -7,9 +9,12 @@ namespace InventarySystem.presentation
 {
     public partial class FrmMain : Form
     {
-        public FrmMain()
+        private readonly IProductService _productService;
+
+        public FrmMain(IProductService productService)
         {
             InitializeComponent();
+            _productService = productService;
             AppTheme.Apply(this);
             this.Load += FrmMain_Load;
         }
@@ -21,7 +26,7 @@ namespace InventarySystem.presentation
                 load_products.Visible = true;
                 gridProducts.Visible = false;
 
-                var products = await ApiService.GetProducts();
+                var products = await _productService.GetAllProductsAsync();
                 gridProducts.DataSource = null;
                 gridProducts.DataSource = products;
                 customColumns();
