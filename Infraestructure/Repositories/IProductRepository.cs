@@ -8,5 +8,6 @@ namespace InventarySystem.Infraestructure.Repositories
     public interface IProductRepository
     {
         Task<IEnumerable<Product>> GetAllProductsAsync();
+        //Task<int> CreateProduct(Product product);
     }
 }

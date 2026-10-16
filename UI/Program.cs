@@ -30,6 +30,8 @@ namespace InventarySystem
             
             // services
             services.AddTransient<IProductService, ProductService>();
+
+            // forms
             services.AddTransient<FrmMain>();
 
             var provider = services.BuildServiceProvider();

@@ -52,7 +52,7 @@
             sidebarApp.Controls.Add(label1);
             sidebarApp.Location = new Point(12, 12);
             sidebarApp.Name = "sidebarApp";
-            sidebarApp.Size = new Size(220, 822);
+            sidebarApp.Size = new Size(220, 913);
             sidebarApp.TabIndex = 0;
             sidebarApp.Paint += sidebarApp_Paint;
             // 
@@ -143,14 +143,14 @@
             panel1.Controls.Add(gridProducts);
             panel1.Location = new Point(260, 184);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1683, 650);
+            panel1.Size = new Size(1990, 744);
             panel1.TabIndex = 7;
             // 
             // load_products
             // 
             load_products.AutoSize = true;
             load_products.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            load_products.Location = new Point(420, 260);
+            load_products.Location = new Point(748, 346);
             load_products.Name = "load_products";
             load_products.Size = new Size(441, 59);
             load_products.TabIndex = 1;
@@ -163,7 +163,7 @@
             gridProducts.Location = new Point(21, 23);
             gridProducts.Name = "gridProducts";
             gridProducts.RowHeadersWidth = 82;
-            gridProducts.Size = new Size(1645, 604);
+            gridProducts.Size = new Size(1956, 718);
             gridProducts.TabIndex = 0;
             gridProducts.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -171,7 +171,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1955, 846);
+            ClientSize = new Size(2262, 940);
             Controls.Add(panel1);
             Controls.Add(Load_Products_Label);
             Controls.Add(titlePage);

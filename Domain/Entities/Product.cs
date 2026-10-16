@@ -12,7 +12,7 @@ namespace InventarySystem.Domain.Entities
         public decimal Price { get; set; } = 0;
         public int Stock { get; set; } = 0;
         public string Category { get; set; } = string.Empty;
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
-        public DateTime UpdatedAt { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
 }

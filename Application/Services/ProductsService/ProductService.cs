@@ -1,4 +1,5 @@
 ﻿using InventarySystem.Domain.Entities;
+using InventarySystem.Infraestructure.DTOs.ProductsDTO;
 using InventarySystem.Infraestructure.Repositories;
 
 namespace InventarySystem.Application.Services.ProductsService
@@ -9,9 +10,20 @@ namespace InventarySystem.Application.Services.ProductsService
 
         public ProductService(IProductRepository repo) => _repo = repo;
 
-        public async Task<IEnumerable<Product>> GetAllProductsAsync()
+        public async Task<IEnumerable<ProductResponse>> GetAllProductsAsync()
         {
-            return await _repo.GetAllProductsAsync();
+            var products = await _repo.GetAllProductsAsync();
+            return products.Select(p => new ProductResponse
+            {
+                ProductId = p.Id,
+                ProductName = p.Name,
+                ProductDescription = p.Description,
+                ProductPrice = p.Price,
+                ProductStock = p.Stock,
+                ProductCategory = p.Category,
+                ProductCreatedAt = p.CreatedAt,
+                ProductUpdatedAt = p.UpdatedAt
+            });
         }
     }
 }
