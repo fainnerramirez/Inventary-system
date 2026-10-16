@@ -21,9 +21,9 @@ namespace InventarySystem.Application.Services.ProductsService
                 ProductPrice = p.Price,
                 ProductStock = p.Stock,
                 ProductCategory = p.Category,
-                ProductCreatedAt = p.CreatedAt,
-                ProductUpdatedAt = p.UpdatedAt
-            });
+                ProductCreatedAt = p.CreateAt,
+                ProductUpdatedAt = p.UpdateAt,
+            }).ToList();
         }
     }
 }

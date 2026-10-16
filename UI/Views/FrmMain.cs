@@ -29,7 +29,7 @@ namespace InventarySystem.presentation
                 load_products.Visible = true;
                 gridProducts.Visible = false;
 
-                var products = (await _productService.GetAllProductsAsync()).ToList();
+                var products = await _productService.GetAllProductsAsync();
 
                 gridProducts.DataSource = null;
                 if (products != null && products.Any())
@@ -70,7 +70,14 @@ namespace InventarySystem.presentation
             gridProducts.Columns[nameof(ProductResponse.ProductStock)]?.HeaderText = "Stock";
             gridProducts.Columns[nameof(ProductResponse.ProductCategory)]?.HeaderText = "Categoría";
             gridProducts.Columns[nameof(ProductResponse.ProductCreatedAt)]?.HeaderText = "Creado el";
-            gridProducts.Columns[nameof(ProductResponse.ProductUpdatedAt)]?.HeaderText = "Actualizado el";
+            
+            var colUpdateAt = gridProducts.Columns[nameof(ProductResponse.ProductUpdateAtDisplay)];
+            if (colUpdateAt != null)
+            {
+                colUpdateAt.HeaderText = "Actualizado el";
+                colUpdateAt.DataPropertyName = nameof(ProductResponse.ProductUpdateAtDisplay);
+                colUpdateAt.ReadOnly = true;
+            }
 
             // column width
             gridProducts.Columns[nameof(ProductResponse.ProductId)]?.Width = 100;
@@ -82,7 +89,10 @@ namespace InventarySystem.presentation
             // formats
             gridProducts.Columns[nameof(ProductResponse.ProductPrice)]?.DefaultCellStyle.Format = "C2";
             gridProducts.Columns[nameof(ProductResponse.ProductCreatedAt)]?.DefaultCellStyle.Format = "ddd/MM HH:mm";
-            gridProducts.Columns[nameof(ProductResponse.ProductUpdatedAt)]?.DefaultCellStyle.Format = "ddd/MM HH:mm";
+            gridProducts.Columns[nameof(ProductResponse.ProductUpdateAtDisplay)]?.DefaultCellStyle.Format = "ddd/MM HH:mm";
+
+            // eliminar columns
+            gridProducts.Columns.Remove(nameof(ProductResponse.ProductUpdatedAt));
         }
 
         //private void customColumns()

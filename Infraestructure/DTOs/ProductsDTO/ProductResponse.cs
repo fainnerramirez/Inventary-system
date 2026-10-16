@@ -14,5 +14,6 @@ namespace InventarySystem.Infraestructure.DTOs.ProductsDTO
         public string ProductCategory { get; set; } = string.Empty;
         public DateTime ProductCreatedAt { get; set; }
         public DateTime ProductUpdatedAt { get; set; }
+        public string ProductUpdateAtDisplay => ProductUpdatedAt == DateTime.MinValue ? "N/A" : ProductUpdatedAt.ToString();
     }
 }
